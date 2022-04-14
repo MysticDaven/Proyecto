@@ -2,7 +2,7 @@
     display: grid;
     grid-template-columns: repeat(2, 50%);
     height: 100vh;
-    background-image: url(/assets/moto.webp);
+    background-image: url(/assets/fondologin.jpg);
     background-size: cover;
 }
 
