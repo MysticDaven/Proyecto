@@ -12,6 +12,11 @@ body {
     background-color: darkslategrey;
 }
 
+.bodyc{
+    background-color: darkslategrey;
+    color: #000;
+}
+
 #carrFotos {
    text-align: center;
     color:darkslategrey;
