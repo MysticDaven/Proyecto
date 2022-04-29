@@ -1,0 +1,133 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: darkslategrey;
+}
+
+h1 {
+    text-align: center;
+    display: block;
+    color: beige;
+    background-color: black;
+    padding: 30px;
+}
+
+#DataBox {
+    width: 80%;
+    height: 600px;
+    background-color: aliceblue;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+#datos {
+    width: 35%;
+    float: right;
+    height: 600px;
+    margin-bottom: auto;
+    margin-top: 180px;
+    margin-left: auto;
+    margin-right: auto;
+    align-content: center;
+}
+
+#caracteristicas {
+    resize: none;
+    grid-row: ;
+}
+
+.datos {
+    width: 25%;
+    float: right;
+    height: 500px;
+    margin-top: 50px;
+    margin-right: 50px;
+}
+
+#buttons {   
+    text-align: right;
+    font-size: 30px;
+}
+
+.images {
+    width: 70%;
+    height: 550px;
+    
+}
+
+#eliminar {
+    float: left;
+    font-size: 20px;
+    border-radius: 12px;
+    padding-left: 20px;
+    padding-right: 20px;
+    margin-left: 20px;
+}
+
+#Cancelar {
+    float: right;
+    font-size: 20px;
+    border-radius: 12px;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+#Guardar {
+    float: right;
+    font-size: 20px;
+    border-radius: 12px;
+    padding-left: 20px;
+    padding-right: 20px;
+    margin-left: 50px;
+}
+
+.buttons {
+    margin-right: 50px;
+}
+
+#logo {
+    width: 250px;
+    align-content: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#images {
+    width: 70%;
+    height: 540px;
+    margin-left: 100px;
+    padding-top: 20px;
+}
+
+.img {
+    width: 80px;
+}
+
+#img1 {
+    width: 300px;
+}
+
+#img2 {
+    width: 300px;
+}
+
+#img3 {
+    width: 300px;
+}
+
+#img4 {
+    width: 300px;
+}
+
+#img5 {
+    width: 300px;
+}
+
+#img6 {
+    width: 300px;
+}

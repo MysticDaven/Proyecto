@@ -1,0 +1,101 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+h1{
+    background-color: black;
+    color: azure;
+    text-align: center;
+}
+body {
+    background-color: darkslategrey;
+}
+
+#carrFotos {
+   text-align: center;
+    color:darkslategrey;
+    font-size: 25px;
+    height: 200px;
+    background-color: darkturquoise;
+}
+
+
+
+#img1 {
+    float: left;
+    width: 45%;
+}
+
+#p1 {
+    width: 50%;
+    float: right;
+    display: block;
+    border: solid;
+    margin-right: 15px;
+    margin-top: 40px;
+}
+
+#informacion1 {
+    padding-left: 30px;
+    padding-top: 30px;
+    padding-right: 30px;
+    height: 300px;
+}
+
+#informacion2 {
+    height: 300px;
+    padding-left: 30px;
+    padding-top: 30px;
+    padding-right: 30px;
+}
+
+#img2 {
+    float: right;
+    width: 45%;
+}
+
+#p2 {
+    width: 50%;
+    float: left;
+    display: block;
+    border: solid;
+    margin-left: 15px;
+    margin-top: 40px;
+}
+
+#contenido {
+    background-color: aliceblue;
+    margin-left: auto;
+    margin-right: auto;
+    width: 80%;
+}
+
+#informacion3 {
+    padding-left: 30px;
+    padding-top: 30px;
+    padding-right: 30px;
+    height: 300px;
+}
+
+#img3 {
+    float: left;
+    width: 45%;
+}
+
+#p3 {
+    width: 50%;
+    float: right;
+    display: block;
+    border: solid;
+    margin-right: 15px;
+    margin-top: 40px;
+}
+
+#especificaciones {
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    height: 300px;
+    text-align: center;
+}
