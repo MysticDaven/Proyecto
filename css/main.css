@@ -113,12 +113,19 @@ li:hover {
     text-decoration: none;
 }
 
+.ul-third > a{
+    text-decoration: none;
+}
+
 a:hover{
     color: #ff6a00;
+    text-decoration: none;
+
 }
 
 a:visited{
     text-decoration: none;
+    color: #fff;
 }
 
 .footer{
