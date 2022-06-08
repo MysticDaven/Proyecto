@@ -20,7 +20,7 @@ $(window).ready(function () {
                 }
             },
             error: function (response) {
-                console.log("error " + response);
+                console.log(response);
             }
         });
     });

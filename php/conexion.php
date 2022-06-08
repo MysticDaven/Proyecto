@@ -12,6 +12,7 @@
         function conectar(){
             try {
                 $conn = new PDO('mysql:host='.$this->server.';dbname='.$this->database.';', $this->username, $this->password);
+                echo($conn);
                 return $conn;
             } catch (PDOException $e) {
                 die('Connected failed: ' . $e->getMessage());
@@ -63,8 +64,8 @@
 
         function login($email,$password){
             $link = $this->conectar();
-            $sql="SELECT * FROM usuarios WHERE (nombre='".$email."') AND (pass='".$password."')";
-            echo("sql:".$sql);
+            
+            $sql="SELECT * FROM usuarios WHERE (nombre='".$email."') AND (pass='".$password."')";            
             $result = $link->query($sql) or die (print("Error"));            
     
             $data=[];
@@ -72,8 +73,8 @@
                 $_SESSION['idUsuario']=$item->idUsuario;
                 $data[]=[
                     'idUsuario' => $item->idUsuario,
-                    'email' => $item->nombre,
-                    'password' => $item->pass
+                    'nombre' => $item->nombre,
+                    'pass' => $item->pass
                 ];
             }
             $datajson=json_encode($data);
