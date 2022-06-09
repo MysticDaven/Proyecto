@@ -42,14 +42,16 @@ body {
 }
 
 #informacion1 {
+
     padding-left: 30px;
     padding-top: 30px;
     padding-right: 30px;
-    height: 300px;
+    height: 390px;
 }
 
 #informacion2 {
-    height: 300px;
+
+    height: 390px;
     padding-left: 30px;
     padding-top: 30px;
     padding-right: 30px;
@@ -74,13 +76,15 @@ body {
     margin-left: auto;
     margin-right: auto;
     width: 80%;
+    height: 1400px;
 }
 
 #informacion3 {
+
     padding-left: 30px;
     padding-top: 30px;
     padding-right: 30px;
-    height: 300px;
+    height: 390px;
 }
 
 #img3 {
@@ -98,6 +102,7 @@ body {
 }
 
 #especificaciones {
+
     width: 50%;
     margin-left: auto;
     margin-right: auto;

@@ -19,7 +19,7 @@ $(window).ready(function () {
             data: "",
             dataType: "text",
             success: function (response) {
-                idMoto = 1;
+                idMoto = response;
                 $.ajax({
                     type: "POST",
                     url: "./php/descripcion.php",
@@ -62,7 +62,7 @@ $(window).ready(function () {
             data: "",
             dataType: "text",
             success: function (response) {
-                idMoto = 1;
+                idMoto = response;
                 console.log(idMoto);
                 $.ajax({
                     type: "POST",

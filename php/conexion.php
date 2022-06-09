@@ -93,6 +93,7 @@
                     'marca' => $item->Marca,
                     'modelo' => $item->Modelo,
                     'precio' => $item->Precio,
+                    'imagen' => $item->Imagen,
                     'cilindrada' => $item->Cilindrada,
                     'motor' => $item->motor,
                     'peso' => $item->Peso,

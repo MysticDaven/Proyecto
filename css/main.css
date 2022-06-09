@@ -9,6 +9,21 @@
     color: #fff;
 }
 
+.galeria-item{
+    margin: 0 auto;
+    text-align: center;
+}
+
+h5{
+    color: #000;
+    text-align: center;
+}
+
+h3{
+    color: #000;
+    text-align: center;
+}
+
 body {
     height: 100%;
     color: #fff;
