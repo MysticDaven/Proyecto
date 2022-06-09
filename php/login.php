@@ -1,10 +1,10 @@
 <?php
     require 'conexion.php';
 
-    $email = isset($POST['email']) ? $_POST['email'] : '';
-    $password = isset($POST['password']) ? $_POST['password'] : '';
-
-    $nCon = new conexion();
-    $respuestajson=$nCon->login($email,$password);
+    $email = isset($_POST['email']) ? $_POST['email'] : '';
+    $password = isset($_POST['password']) ? $_POST['password'] : '';
+    
+    $nuevacon= new conexion();
+    $respuestajson=$nuevacon->login($email,$password);
     echo($respuestajson);
 ?>

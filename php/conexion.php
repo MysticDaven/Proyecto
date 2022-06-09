@@ -2,7 +2,7 @@
     session_start();
 
     class conexion{
-        private $server = 'localhost';
+        private $server = 'localhost:3606';
         private $username = 'root';
         private $password = '';
         private $database = 'motoverse';
@@ -11,12 +11,30 @@
     
         function conectar(){
             try {
-                $conn = new PDO('mysql:host='.$this->server.';dbname='.$this->database.';', $this->username, $this->password);
-                echo($conn);
+                $conn = new PDO('mysql:host='.$this->server.';dbname='.$this->database.';', $this->username, $this->password);                
                 return $conn;
             } catch (PDOException $e) {
                 die('Connected failed: ' . $e->getMessage());
             }
+        }
+
+        function login($email,$password){
+            $link = $this->conectar();
+            
+            $sql="SELECT * FROM usuarios WHERE (nombre='".$email."') AND (pass='".$password."')";                    
+            $result = $link->query($sql) or die (print("Error"));            
+    
+            $data=[];
+            while($item = $result->fetch(PDO::FETCH_OBJ)){
+                $_SESSION['idUsuario']=$item->idUsuario;
+                $data[]=[
+                    'idUsuario' => $item->idUsuario,
+                    'nombre' => $item->nombre,
+                    'pass' => $item->pass
+                ];
+            }
+            $datajson=json_encode($data);
+            return $datajson; 
         }
 
         function agregarMoto($marca, $modelo, $motor, $peso, $precio, $cilidrada, $velMax, $d1, $d2, $d3, $tmpimg, $type, $tmpimg2, $type2, $tmpimg3, $type3){
@@ -28,22 +46,22 @@
             while($item = $autoincrement->fetch(PDO::FETCH_OBJ)){
               $idSolicitud=$item->AUTO_INCREMENT;
             }
-            $name=$idSolicitud.$nombre.$type;
+            $name=$idSolicitud.$motor.$type;
             $rutarelativa="images/".$name;
-            $rutaguardarphp="/".$rutarelativa;
+            $rutaguardarphp="../".$rutarelativa;
             if(move_uploaded_file($tmpimg, $rutaguardarphp)){
 
-                $name=$idSolicitud.$nombre.$type2;
+                $name=$idSolicitud.$motor.$type2;
                 $rutarelativa2="images/".$name;
-                $rutaguardarphp="/".$rutarelativa2;
+                $rutaguardarphp="../".$rutarelativa2;
                 if(move_uploaded_file($tmpimg2, $rutaguardarphp)){
 
-                    $name=$idSolicitud.$nombre.$type3;
+                    $name=$idSolicitud.$motor.$type3;
                     $rutarelativa3="images/".$name;
-                    $rutaguardarphp="/".$rutarelativa3;
+                    $rutaguardarphp="../".$rutarelativa3;
                     if(move_uploaded_file($tmpimg3, $rutaguardarphp)){
 
-                        $link->query("INSERT INTO motos (Marca, Modelo, Precio, Cilindrada, motor, Peso, VelMax) VALUES ('$marca', '$modelo', '$precio', '$cilidrada', '$moto', '$peso', '$velMax')")or die (print("Error"));
+                        $link->query("INSERT INTO motos (Marca, Modelo, Precio, Cilindrada, motor, Peso, VelMax) VALUES ('$marca', '$modelo', '$precio', '$cilidrada', '$motor', '$peso', '$velMax')")or die (print("Error"));
 
                         $link->query("INSERT INTO descripcion (idMoto, Comentario, Imagen) VALUES ('$idSolicitud', '$d1', '$rutarelativa')")or die (print("Error"));
                         $link->query("INSERT INTO descripcion (idMoto, Comentario, Imagen) VALUES ('$idSolicitud', '$d2', '$rutarelativa2')")or die (print("Error"));
@@ -62,19 +80,41 @@
           return $datajson; 
         }
 
-        function login($email,$password){
+        function encontrarMoto(){
             $link = $this->conectar();
-            
-            $sql="SELECT * FROM usuarios WHERE (nombre='".$email."') AND (pass='".$password."')";            
-            $result = $link->query($sql) or die (print("Error"));            
-    
+
+            $sql="SELECT * FROM motos";                    
+            $result = $link->query($sql) or die (print("Error"));
+
             $data=[];
             while($item = $result->fetch(PDO::FETCH_OBJ)){
-                $_SESSION['idUsuario']=$item->idUsuario;
                 $data[]=[
-                    'idUsuario' => $item->idUsuario,
-                    'nombre' => $item->nombre,
-                    'pass' => $item->pass
+                    'idMoto' => $item->idMoto,
+                    'marca' => $item->Marca,
+                    'modelo' => $item->Modelo,
+                    'precio' => $item->Precio,
+                    'cilindrada' => $item->Cilindrada,
+                    'motor' => $item->motor,
+                    'peso' => $item->Peso,
+                    'velMax' => $item->VelMax
+                ];
+            }
+            $datajson=json_encode($data);
+            return $datajson; 
+        }
+
+        function encontrarDescripcion(){
+            $link = $this->conectar();
+            
+            $sql="SELECT * FROM descripcion";                    
+            $result = $link->query($sql) or die (print("Error"));
+
+            $data=[];
+            while($item = $result->fetch(PDO::FETCH_OBJ)){
+                $data[]=[
+                    'idMoto' => $item->idMoto,
+                    'Comentario' => $item->Comentario,
+                    'Imagen' => $item->Imagen,
                 ];
             }
             $datajson=json_encode($data);

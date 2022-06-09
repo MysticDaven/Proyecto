@@ -3,6 +3,7 @@ $(window).ready(function () {
     $('.login-form').submit(function (e) {
         e.preventDefault();
         var datos = $(this).serializeArray();
+        console.log(datos)
         $.ajax({
             type: "POST",
             url: "./php/login.php",
@@ -10,10 +11,11 @@ $(window).ready(function () {
             dataType: "JSON",
             success: function (response) {
                 //obtener tamaño del json
-                console.log("hola" + response);
                 usuarioexiste = (Object.keys(response).length);
+                console.log(response);
                 if (usuarioexiste == 1) {
-                    // location.href = "./agregar.html";
+                    console.log("hola" + response[0]['nombre']);
+                    location.href = "./agregar.html";
                 }
                 else {
                     alert("Correo o password incorrectos");

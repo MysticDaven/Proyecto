@@ -12,11 +12,16 @@ $(window).ready(function(){
             processData: false,
             success: function (response) {
                 console.log(response);
-                
+                window.alert("Agregada con exito!");
+                location.href = "./agregar.html";
             },
             error: function(response) {
                 console.log(response);
             }
         });
+    });
+
+    $('#Cancelar').click(function(){
+        location.href = "./main.html";
     });
 });
