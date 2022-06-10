@@ -16,7 +16,7 @@ $(window).ready(function () {
                     html += `
                 <div class="galeria-item">
                   <img src="${item.imagen}" alt="..." onclick="abrirMoto('${item.idMoto}')" width="200px">
-                  <form action="php/encontrarMoto.php" method="post" autocomplete="off">
+                  <form action="php/eleccionEditMoto.php" method="post" autocomplete="off">
                   <input type="text" name="idMoto" value="${item.idMoto}" style="display: none;">
                   <input class="btn btn-outline-primary" type="submit" value="Aceptar" id="btnSubmit${item.idMoto}" style="display: none;">
                   </form>
@@ -29,7 +29,13 @@ $(window).ready(function () {
             }
         });
     }    
+
+    $('#salir').click(function(){
+        location.href = "./admin.html";
+    });
 });
+
+
 
 function abrirMoto(idMoto){
     $(`#btnSubmit${idMoto} `).click();

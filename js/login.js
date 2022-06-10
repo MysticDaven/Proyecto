@@ -15,7 +15,7 @@ $(window).ready(function () {
                 console.log(response);
                 if (usuarioexiste == 1) {
                     console.log("hola" + response[0]['nombre']);
-                    location.href = "./agregar.html";
+                    location.href = "./admin.html";
                 }
                 else {
                     alert("Correo o password incorrectos");

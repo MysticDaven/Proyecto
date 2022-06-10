@@ -57,7 +57,6 @@ h1 {
 .images {
     width: 70%;
     height: 550px;
-    
 }
 
 #eliminar {
@@ -87,7 +86,7 @@ h1 {
 }
 
 .buttons {
-    margin-right: 50px;
+    margin-left: 0;
 }
 
 #logo {

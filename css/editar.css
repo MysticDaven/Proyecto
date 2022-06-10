@@ -25,6 +25,17 @@ h1 {
     margin-bottom: 50px;
 }
 
+#DataBox-v2 {
+    width: 80%;
+    height: 600px;
+    background-color: aliceblue;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    columns: 2;
+}
+
 #datos {
     width: 35%;
     float: right;
@@ -49,7 +60,7 @@ h1 {
     margin-right: 50px;
 }
 
-#buttons {   
+#buttons {       
     text-align: right;
     font-size: 30px;
 }
@@ -87,6 +98,7 @@ h1 {
 }
 
 .buttons {
+    margin-top: 20px;
     margin-right: 50px;
 }
 
@@ -102,6 +114,21 @@ h1 {
     height: 540px;
     margin-left: 100px;
     padding-top: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.ima-editar{
+    position: relative;
+    display: flex;
+}
+
+.btn-ad{
+    position: relative;
+    background-color: #000;
+    color: #fff;
+
 }
 
 .img {

@@ -3,7 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <title>MotoVerse | Editar Articulo</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
     <link type="text/css" rel="stylesheet" href="css/editar.css">
+    <script src="js/jquery-3.6.0.min.js"></script>
+    <script src="js/editar.js"></script>
 </head>
 <body>
     <h1>Edicion de Articulo</h1>
@@ -12,38 +16,51 @@
         <div class="datos">
            <img src="images/logo.png" id="logo">
            <br>
-           <br>
-           <br>
-           <br>
-            <label>Nombre:</label>
-            <input type="text" name="nombre" id="nombre">
+           <div class="divMarca  row">
+               <label class="col-sm-4">Marca:</label>
+               <input class="col-sm-6" type="text" name="marca" id="marca">
+           </div>
             <br>
+            <div class="divModelo  row">
+                <label class="col-sm-4">Modelo:</label>
+                <input class="col-sm-6" type="text" name="modelo" id="modelo">
+            </div>                    
             <br>
-            <label>Modelo:</label>
-            <input type="text" name="nombre" id="nombre">
+            <div class="divMotor  row">
+                <label class="col-sm-4">Motor:</label>
+                <input class="col-sm-6" type="text" name="motor" id="motor">
+            </div>            
             <br>
+            <div class="divPeso  row">
+                <label class="col-sm-4">Peso:</label>
+                <input class="col-sm-6" type="text" name="peso" id="peso">
+            </div>            
             <br>
-            <label>Caracteristicas:</label>
+            <div class="divPrecio  row">
+                <label class="col-sm-4">Precio: $</label>
+                <input class="col-sm-6" type="text" name="precio" id="precio">
+            </div>
             <br>
-            <textarea name="caracteristicas" id="caracteristicas" rows="5" cols=30></textarea>
+            <div class="divCilindrada  row">
+                <label class="col-sm-4">Cilindrada: $</label>
+                <input class="col-sm-6" type="text" name="cilidrada" id="cilidrada">
+            </div>            
             <br>
+            <div class="divVelMax  row">
+                <label class="col-sm-4">Velocidad Maxima:</label>
+                <input class="col-sm-6" type="text" name="velMax" id="velMax">
+            </div>                        
             <br>
-            <label>Cantidad:</label>
-            <input type="number" min="0" max="100" name="nombre" id="nombre" value="0">
         </div>
         <div id="images">
-                <img src="images/1.png" id="img1">
-                <img src="images/2.png" id="img2">
-                <img src="images/3.png" id="img3">
-                <img src="images/4.png" id="img4">
-                <img src="images/5.png" id="img5">
-                <img src="images/6.png" id="img6">
-        </div>
-        <div class="buttons">
-            <button id="eliminar">Eliminar Producto</button>
-            <button id="Guardar">Guardar</button>
-            <button id="Cancelar">Cancelar</button>
-            
+            <img src="images/1.png" id="img1" height="350" width="630">
+            <div class="buttons row">
+                <button class="btn btn-success col-sm-2" type="submit" id="Guardar">Guardar</button>
+                <div class="col-sm-1"></div>
+                <button class="btn btn-primary col-sm-2" id="Cancelar">Salir</button>
+                <button class="btn btn-danger col-sm-2" id="eliminar">Eliminar</button>  
+                <div class="col-sm-1"></div>          
+            </div>
         </div>
     </form>
 </body>

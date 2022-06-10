@@ -9,8 +9,26 @@ var velMax="";
 var Imagen="";
 var Comentario="";
 $(window).ready(function () {
+    $(".btnEditar").hide();
     encontrarDescripcion();
     encontrarArticulo();
+
+    $.ajax({
+        type: "POST",
+        url: "./php/validarUsuario.php",
+        data: "",
+        dataType: "JSON",
+        success: function (response) {
+            console.log(response)
+            if(response[0]['tipo'] == 1){
+                $(".btnEditar").show();
+            }
+        },
+        error: function(response){
+            console.log(response)
+        }
+    });
+
 
     function encontrarDescripcion() {
         $.ajax({

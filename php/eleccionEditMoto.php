@@ -4,6 +4,6 @@
         session_start();
         $_SESSION['idMoto'] = $idMoto;
         
-        Header("location: http://localhost/motoverse/Proyecto/articulo.html");
+        Header("location: http://localhost/motoverse/Proyecto/editar.html");
 
     ?>

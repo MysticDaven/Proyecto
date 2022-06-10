@@ -2,7 +2,7 @@
     session_start();
 
     class conexion{
-        private $server = 'localhost:3606';
+        private $server = 'localhost:3306';
         private $username = 'root';
         private $password = '';
         private $database = 'motoverse';
@@ -27,6 +27,7 @@
             $data=[];
             while($item = $result->fetch(PDO::FETCH_OBJ)){
                 $_SESSION['idUsuario']=$item->idUsuario;
+                $_SESSION['tipoUsuario']="1";
                 $data[]=[
                     'idUsuario' => $item->idUsuario,
                     'nombre' => $item->nombre,
@@ -61,7 +62,7 @@
                     $rutaguardarphp="../".$rutarelativa3;
                     if(move_uploaded_file($tmpimg3, $rutaguardarphp)){
 
-                        $link->query("INSERT INTO motos (Marca, Modelo, Precio, Cilindrada, motor, Peso, VelMax) VALUES ('$marca', '$modelo', '$precio', '$cilidrada', '$motor', '$peso', '$velMax')")or die (print("Error"));
+                        $link->query("INSERT INTO motos (Marca, Modelo, Precio, Imagen, Cilindrada, motor, Peso, VelMax) VALUES ('$marca', '$modelo', '$precio', '$d1', '$cilidrada', '$motor', '$peso', '$velMax')")or die (print("Error"));
 
                         $link->query("INSERT INTO descripcion (idMoto, Comentario, Imagen) VALUES ('$idSolicitud', '$d1', '$rutarelativa')")or die (print("Error"));
                         $link->query("INSERT INTO descripcion (idMoto, Comentario, Imagen) VALUES ('$idSolicitud', '$d2', '$rutarelativa2')")or die (print("Error"));
@@ -74,6 +75,20 @@
             
             $data[]=[
               "estatus" => "registrado",                  
+            ];
+          /* Si regresa algo*/
+          $datajson=json_encode($data);
+          return $datajson; 
+        }
+
+        function editarMoto($marca, $modelo, $motor, $peso, $precio, $cilidrada, $velMax, $idMoto){
+            $link = $this->conectar();
+            $id = $_SESSION['idUsuario'];
+                        
+            $link->query("UPDATE motos SET Marca='$marca', Modelo='$modelo', Precio = '$precio', Cilindrada = '$cilidrada', Motor='$motor', Peso = '$peso', VelMax = '$velMax' WHERE idMoto = '$idMoto'")or die (print("Error"));
+
+            $data[]=[
+              "estatus" => "update",                  
             ];
           /* Si regresa algo*/
           $datajson=json_encode($data);
@@ -104,6 +119,20 @@
             return $datajson; 
         }
 
+        function eliminarMoto($idMoto){
+            $link = $this->conectar();
+
+            $sql="DELETE FROM motos WHERE idMoto = '$idMoto'";                    
+            $result = $link->query($sql) or die (print("Error"));
+
+            $data[]=[
+              "estatus" => "eliminado",                  
+            ];
+            /* Si regresa algo*/
+            $datajson=json_encode($data);
+            return $datajson; 
+        }
+
         function encontrarDescripcion(){
             $link = $this->conectar();
             
@@ -118,6 +147,19 @@
                     'Imagen' => $item->Imagen,
                 ];
             }
+            $datajson=json_encode($data);
+            return $datajson; 
+        }
+
+        function validarUsuario(){
+            $tipo = $_SESSION['tipoUsuario'];  
+            echo($tipo);
+            if($tipo == null)
+                 $tipo ="0";
+            /* Si regresa algo*/
+            $data[]=[
+                "tipo" => $tipo        
+            ];
             $datajson=json_encode($data);
             return $datajson; 
         }
